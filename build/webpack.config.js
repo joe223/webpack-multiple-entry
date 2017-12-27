@@ -1,5 +1,6 @@
 const HtmlPlugin = require('html-webpack-plugin')
 const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
     entry: {
@@ -22,7 +23,8 @@ module.exports = {
             template: pathResolve('../src/template/index.tpl.html'),
             filename: 'bar.html',
             chunks: ['bar']
-        })
+        }),
+        new webpack.NoEmitOnErrorsPlugin()
     ]
 }
 

@@ -11,6 +11,14 @@ module.exports = {
         path: pathResolve('../dist'),
         filename: '[name].js'
     },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }
+        ]
+    },
     plugins: [
         new HtmlPlugin({
             title: 'foo',
@@ -23,8 +31,7 @@ module.exports = {
             template: pathResolve('../src/template/index.tpl.html'),
             filename: 'bar.html',
             chunks: ['bar']
-        }),
-        new webpack.NoEmitOnErrorsPlugin()
+        })
     ]
 }
 
